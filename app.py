@@ -217,28 +217,30 @@ if __name__ == "__main__":
                     with gr.TabItem("提取", id=1):
                         with gr.Column(scale=2):
                             with gr.Row():
-                                with gr.Column(scale=1, min_width=100):
-                                    gr.Markdown("### 提取的 CSS 代码")
-                                    extracted_css = gr.Code(
-                                        label="CSS 代码",
-                                        language="css",
-                                        interactive=False,
-                                        min_width=30,
-                                    )
-                                with gr.Column(scale=1, min_width=100):
-                                    gr.Markdown("### 提取的 JS 代码")
-                                    extracted_js = gr.Code(
-                                        label="JavaScript 代码",
-                                        language="javascript",
-                                        interactive=False,
-                                    )
-                            with gr.Row():
                                 with gr.Column(scale=1):
                                     human_input = gr.Textbox(
                                         label="优化建议",
                                         placeholder="请输入对以上`ccs`代码和`js`代码的优化建议",
                                     )
                                     optimize_btn = gr.Button("优化代码")
+                            with gr.Row():
+                                with gr.Column(scale=1, min_width=100):
+                                    gr.Markdown("### 提取的 CSS 代码")
+                                    extracted_css = gr.Code(
+                                        label="CSS 代码",
+                                        language="css",
+                                        interactive=True,
+                                        max_lines=10,
+                                    )
+                                with gr.Column(scale=1, min_width=100):
+                                    gr.Markdown("### 提取的 JS 代码")
+                                    extracted_js = gr.Code(
+                                        label="JavaScript 代码",
+                                        language="javascript",
+                                        interactive=True,
+                                        max_lines=10,
+                                    )
+                            
 
             with gr.Column(scale=2):
                 gr.Markdown("<center><h3>封装组件表现效果</h3></center>")
@@ -248,7 +250,10 @@ if __name__ == "__main__":
                     with gr.Column(scale=1, min_width=100):
                         gr.Markdown("### 封装的 CSS 代码")
                         optimized_css = gr.Code(
-                            label="CSS 代码", language="css", interactive=True
+                            label="CSS 代码",
+                            language="css",
+                            interactive=True,
+                            max_lines=10,
                         )
                     with gr.Column(scale=1, min_width=100):
                         gr.Markdown("### 封装的 JS 代码")
@@ -256,6 +261,7 @@ if __name__ == "__main__":
                             label="JavaScript 代码",
                             language="javascript",
                             interactive=True,
+                            max_lines=10,
                         )
         # 绑定交互逻辑
         submit_btn.click(
