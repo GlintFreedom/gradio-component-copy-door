@@ -140,6 +140,8 @@ role:
         
         2. `source_js`(str): 目标组件的原始 js 代码。
 
+        3. `suggestion`(str): 优化建议。
+
 
         你的输出字段是：
 
@@ -161,6 +163,11 @@ role:
         {source_js}
 
 
+        [[## suggestion ##]]
+
+        {suggestion}
+
+
         [[## optimized_css ##]]
 
         {optimized_css}
@@ -176,7 +183,7 @@ role:
 
         按照上述结构，你的目标是：
 
-        对目标组件相应的 css 代码和 js 代码进行组件化。要求输出即插即用的 css 和 js 代码，能够使用 id 为`component`的组件中直接调用。
+        根据优化建议，对目标组件相应的 css 代码和 js 代码进行组件化。要求输出即插即用的 css 和 js 代码，能够使用 id 为`component`的组件中直接调用。
         
         '
         user_content: '[[## source_css ##]]
@@ -187,6 +194,11 @@ role:
         [[## source_js ##]]
 
         {source_js}
+
+
+        [[## suggestion ##]]
+
+        {suggestion}
         
 
         [[## completed ##]]
